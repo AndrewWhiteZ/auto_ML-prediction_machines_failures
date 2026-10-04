@@ -1,4 +1,5 @@
 """Inference and business recommendations."""
+
 import argparse
 import json
 from pathlib import Path
@@ -33,8 +34,10 @@ def predict(
     use_train_for_drift: bool = True,
 ) -> pd.DataFrame:
     """
-    Выполняет предсказание вероятности отказа оборудования, для полученной вероятности присвает риск, выраженный перечислением ["Низкий", "Средний", "Высокий"].
-    Формирует рекоммендации по улучшению качества модели и, при необходимости, рассчитывает дрейф данных.
+    Выполняет предсказание вероятности отказа оборудования, для полученной вероятности
+    присвает риск, выраженный перечислением ["Низкий", "Средний", "Высокий"].
+    Формирует рекоммендации по улучшению качества модели и, при необходимости,
+    рассчитывает дрейф данных.
     Для презентации работоспособности используются тестовые данные
     """
     output_dir = output_dir or ARTIFACTS_DIR
@@ -50,18 +53,26 @@ def predict(
 
     test_raw = load_test()
     test_df = build_features(test_raw, is_train=False)
-    X, _ = get_feature_matrix(test_df, include_target=False)
+    x, _ = get_feature_matrix(test_df, include_target=False)
 
-    cat_idx = [X.columns.get_loc(c) for c in CAT_FEATURES if c in X.columns]
-    pool = Pool(X, cat_features=cat_idx)
+    cat_idx = [x.columns.get_loc(c) for c in CAT_FEATURES if c in x.columns]
+    pool = Pool(x, cat_features=cat_idx)
     probabilities = model.predict_proba(pool)[:, 1]
 
-    result = test_df[[c for c in ["id", PRODUCT_ID_COL, TYPE_COL] if c in test_df.columns]].copy()
+    result = test_df[
+        [c for c in ["id", PRODUCT_ID_COL, TYPE_COL] if c in test_df.columns]
+    ].copy()
     if "id" not in result.columns:
         result = test_df[[PRODUCT_ID_COL, TYPE_COL]].copy()
 
     result["failure_probability"] = probabilities
-    for col in ["efficiency [%]", "Tool wear [min]", "delta_temperature [K]", "Power [kW]", "air_mass"]:
+    for col in [
+        "efficiency [%]",
+        "Tool wear [min]",
+        "delta_temperature [K]",
+        "Power [kW]",
+        "air_mass",
+    ]:
         if col in test_df.columns:
             result[col] = test_df[col].values
     if "Power [kW]" in result.columns:
@@ -93,9 +104,12 @@ def predict(
     return result
 
 
-def build_recommendations(predictions: pd.DataFrame, features: pd.DataFrame) -> pd.DataFrame:
+def build_recommendations(
+    predictions: pd.DataFrame, features: pd.DataFrame
+) -> pd.DataFrame:
     """
-    На основании полученных предсказаний формирует рекоммендации для последующего улучшения качества модели
+    На основании полученных предсказаний формирует рекоммендации
+    для последующего улучшения качества модели
     """
     rows = []
 

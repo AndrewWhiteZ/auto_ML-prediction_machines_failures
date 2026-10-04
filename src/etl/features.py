@@ -1,12 +1,11 @@
 """Transform: feature engineering from case7.ipynb."""
+
 import pandas as pd
 
 from src.config import (
-    ENGINEERED_FEATURES,
     FAILURE_FLAGS,
     MODEL_FEATURES,
     PRODUCT_ID_COL,
-    RAW_NUMERIC_FEATURES,
     TARGET_COL,
     TYPE_COL,
 )
@@ -41,7 +40,9 @@ def build_features(df: pd.DataFrame, is_train: bool = True) -> pd.DataFrame:
     out[FAILURE_FLAGS] = flags
     out = out.sort_values([TYPE_COL, PRODUCT_ID_COL, "Tool wear [min]"])
     out["failures_sum"] = flags.sum(axis=1)
-    cumsum = out.groupby([TYPE_COL, PRODUCT_ID_COL], observed=True)["failures_sum"].cumsum()
+    cumsum = out.groupby([TYPE_COL, PRODUCT_ID_COL], observed=True)[
+        "failures_sum"
+    ].cumsum()
     # вычитаем текущую строку, чтобы считать только прошлые отказы
     out["total_failures_cum"] = cumsum - out["failures_sum"]
     out = out.drop(columns=["failures_sum"])
@@ -52,18 +53,18 @@ def build_features(df: pd.DataFrame, is_train: bool = True) -> pd.DataFrame:
 def get_feature_matrix(
     df: pd.DataFrame, include_target: bool = True
 ) -> tuple[pd.DataFrame, pd.Series | None]:
-    """Return X and optional y for modeling."""
+    """Return x and optional y for modeling."""
     missing = [c for c in MODEL_FEATURES if c not in df.columns]
     if missing:
         raise ValueError(f"Features not built: {missing}")
 
-    X = df[MODEL_FEATURES].copy()
+    x = df[MODEL_FEATURES].copy()
     for col in FAILURE_FLAGS:
-        X[col] = X[col].astype(int)
-    X[TYPE_COL] = X[TYPE_COL].astype(str)
+        x[col] = x[col].astype(int)
+    x[TYPE_COL] = x[TYPE_COL].astype(str)
 
     y = None
     if include_target and TARGET_COL in df.columns:
         y = df[TARGET_COL].astype(int)
 
-    return X, y
+    return x, y

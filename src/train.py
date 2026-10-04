@@ -1,4 +1,5 @@
 """Train CatBoost model with MLflow tracking."""
+
 import argparse
 import json
 import time
@@ -18,16 +19,15 @@ from sklearn.model_selection import train_test_split
 
 from src.config import (
     ARTIFACTS_DIR,
-    CATBOOST_PARAMS,
     CAT_FEATURES,
+    CATBOOST_PARAMS,
     RANDOM_STATE,
     SMOKE_SAMPLE_SIZE,
-    TARGET_COL,
     TRAIN_TEST_SIZE,
 )
-from src.mlflow_setup import setup_mlflow
 from src.etl.features import build_features, get_feature_matrix
 from src.etl.load import load_train
+from src.mlflow_setup import setup_mlflow
 from src.monitoring import (
     build_training_monitoring_summary,
     compute_data_quality_report,
@@ -58,19 +58,19 @@ def train_model(
         df = df.sample(n=min(sample_size, len(df)), random_state=RANDOM_STATE)
 
     df = build_features(df, is_train=True)
-    X, y = get_feature_matrix(df, include_target=True)
+    x, y = get_feature_matrix(df, include_target=True)
 
-    cat_idx = [X.columns.get_loc(c) for c in CAT_FEATURES if c in X.columns]
-    X_train, X_val, y_train, y_val = train_test_split(
-        X,
+    cat_idx = [x.columns.get_loc(c) for c in CAT_FEATURES if c in x.columns]
+    x_train, x_val, y_train, y_val = train_test_split(
+        x,
         y,
         test_size=TRAIN_TEST_SIZE,
         random_state=RANDOM_STATE,
         stratify=y,
     )
 
-    train_pool = Pool(X_train, y_train, cat_features=cat_idx)
-    val_pool = Pool(X_val, y_val, cat_features=cat_idx)
+    train_pool = Pool(x_train, y_train, cat_features=cat_idx)
+    val_pool = Pool(x_val, y_val, cat_features=cat_idx)
 
     infra_before = infrastructure_snapshot()
     t0 = time.perf_counter()
@@ -79,7 +79,7 @@ def train_model(
         for key, value in CATBOOST_PARAMS.items():
             mlflow.log_param(key, value)
         mlflow.log_param("sample_size", sample_size or len(df))
-        mlflow.log_param("n_features", len(X.columns))
+        mlflow.log_param("n_features", len(x.columns))
 
         model = CatBoostClassifier(**CATBOOST_PARAMS)
         model.fit(train_pool, eval_set=val_pool, use_best_model=True)
@@ -87,7 +87,7 @@ def train_model(
         train_time = time.perf_counter() - t0
         mlflow.log_metric("train_time_sec", train_time)
 
-        y_proba = model.predict_proba(X_val)[:, 1]
+        y_proba = model.predict_proba(x_val)[:, 1]
         y_pred = (y_proba >= 0.5).astype(int)
 
         metrics = {
@@ -112,7 +112,7 @@ def train_model(
         model.save_model(str(model_path))
         mlflow.log_artifact(str(model_path))
 
-        importance = dict(zip(X.columns, model.get_feature_importance().tolist()))
+        importance = dict(zip(x.columns, model.get_feature_importance().tolist()))
         metrics["feature_importance_top5"] = dict(
             sorted(importance.items(), key=lambda x: x[1], reverse=True)[:5]
         )
@@ -164,7 +164,7 @@ def main() -> None:
         "--sample-size",
         type=int,
         default=None,
-        help=f"Use subset for smoke tests (default: full dataset)",
+        help="Use subset for smoke tests (default: full dataset)",
     )
     parser.add_argument(
         "--smoke",

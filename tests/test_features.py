@@ -69,7 +69,7 @@ def test_total_failures_cum_excludes_current_row():
 
 def test_get_feature_matrix_shape():
     df = build_features(_synthetic_row(), is_train=True)
-    X, y = get_feature_matrix(df, include_target=True)
-    assert len(X.columns) >= 10
+    x, y = get_feature_matrix(df, include_target=True)
+    assert len(x.columns) >= 10
     assert y is not None
     assert y.iloc[0] == 0

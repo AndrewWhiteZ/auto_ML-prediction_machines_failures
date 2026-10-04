@@ -13,6 +13,8 @@ dist/
 build/
 .pytest_cache/
 .coverage
+.poetry/
+.ruff_cache/
 htmlcov/
 
 artifacts/*

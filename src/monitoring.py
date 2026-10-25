@@ -25,12 +25,8 @@ def compute_data_quality_report(df: pd.DataFrame, label: str = "train") -> dict:
         "dataset": label,
         "rows": len(df),
         "null_counts": df.isnull().sum().to_dict(),
-        "target_rate": float(df[TARGET_COL].mean())
-        if TARGET_COL in df.columns
-        else None,
-        "type_distribution": df["Type"].value_counts().to_dict()
-        if "Type" in df.columns
-        else {},
+        "target_rate": float(df[TARGET_COL].mean()) if TARGET_COL in df.columns else None,
+        "type_distribution": df["Type"].value_counts().to_dict() if "Type" in df.columns else {},
     }
     for col in RAW_NUMERIC_FEATURES:
         if col in df.columns:
@@ -39,9 +35,7 @@ def compute_data_quality_report(df: pd.DataFrame, label: str = "train") -> dict:
     return report
 
 
-def population_stability_index(
-    expected: pd.Series, actual: pd.Series, bins: int = 10
-) -> float:
+def population_stability_index(expected: pd.Series, actual: pd.Series, bins: int = 10) -> float:
     """
     Рассчитывает индекс стабильности популяции (PSI) для оценки смещения распределений.
 
@@ -62,18 +56,11 @@ def population_stability_index(
         max(expected.max(), actual.max()),
         bins + 1,
     )
-    expected_pct = pd.cut(expected, breakpoints, duplicates="drop").value_counts(
-        normalize=True
-    )
-    actual_pct = pd.cut(actual, breakpoints, duplicates="drop").value_counts(
-        normalize=True
-    )
+    expected_pct = pd.cut(expected, breakpoints, duplicates="drop").value_counts(normalize=True)
+    actual_pct = pd.cut(actual, breakpoints, duplicates="drop").value_counts(normalize=True)
     aligned = pd.concat([expected_pct, actual_pct], axis=1, join="outer").fillna(0.0001)
     aligned.columns = ["expected", "actual"]
-    psi = (
-        (aligned["actual"] - aligned["expected"])
-        * np.log(aligned["actual"] / aligned["expected"])
-    ).sum()
+    psi = ((aligned["actual"] - aligned["expected"]) * np.log(aligned["actual"] / aligned["expected"])).sum()
     return float(psi)
 
 
@@ -195,9 +182,7 @@ def build_inference_monitoring_summary(
     if inference_time_sec is not None:
         performance["inference_time_sec"] = round(inference_time_sec, 3)
         if predictions_rows:
-            performance["rows_per_sec"] = round(
-                predictions_rows / inference_time_sec, 1
-            )
+            performance["rows_per_sec"] = round(predictions_rows / inference_time_sec, 1)
     if pipeline_time_sec is not None:
         performance["pipeline_time_sec"] = round(pipeline_time_sec, 3)
 
@@ -205,9 +190,7 @@ def build_inference_monitoring_summary(
         "stage": "inference",
         "predictions_rows": predictions_rows,
         "high_risk_count": high_risk_count,
-        "high_risk_rate": round(high_risk_count / predictions_rows, 4)
-        if predictions_rows
-        else 0,
+        "high_risk_rate": round(high_risk_count / predictions_rows, 4) if predictions_rows else 0,
         "performance": performance,
         "drift": drift_eval,
         "test_quality": {

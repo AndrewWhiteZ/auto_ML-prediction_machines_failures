@@ -137,10 +137,7 @@ def save_drift_chart(drift_features: dict, path: Path) -> None:
     """PSI drift chart for inference monitoring."""
     features = list(drift_features.keys())
     psi_values = [drift_features[f]["psi"] for f in features]
-    colors = [
-        "#2ecc71" if v < 0.1 else "#f1c40f" if v < 0.25 else "#e74c3c"
-        for v in psi_values
-    ]
+    colors = ["#2ecc71" if v < 0.1 else "#f1c40f" if v < 0.25 else "#e74c3c" for v in psi_values]
 
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.barh(features, psi_values, color=colors)

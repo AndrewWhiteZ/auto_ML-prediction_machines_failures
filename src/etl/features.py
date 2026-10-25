@@ -24,14 +24,10 @@ def build_features(df: pd.DataFrame, is_train: bool = True) -> pd.DataFrame:
     if is_train:
         out = clean_contradictory_rows(out)
 
-    out["delta_temperature [K]"] = (
-        out["Process temperature [K]"] - out["Air temperature [K]"]
-    )
+    out["delta_temperature [K]"] = out["Process temperature [K]"] - out["Air temperature [K]"]
     out["Power [kW]"] = out["Torque [Nm]"] * out["Rotational speed [rpm]"] / 9550
     out["air_mass"] = 14.4 * out["Power [kW]"]
-    out["air_heat_power [kW]"] = (
-        out["air_mass"] * 1.005 * out["delta_temperature [K]"] / 60
-    )
+    out["air_heat_power [kW]"] = out["air_mass"] * 1.005 * out["delta_temperature [K]"] / 60
     denominator = out["air_heat_power [kW]"] + out["Power [kW]"]
     out["efficiency [%]"] = (out["Power [kW]"] / denominator.replace(0, pd.NA)) * 100
     out["efficiency [%]"] = out["efficiency [%]"].fillna(0.0).clip(0.0, 100.0)
@@ -40,9 +36,7 @@ def build_features(df: pd.DataFrame, is_train: bool = True) -> pd.DataFrame:
     out[FAILURE_FLAGS] = flags
     out = out.sort_values([TYPE_COL, PRODUCT_ID_COL, "Tool wear [min]"])
     out["failures_sum"] = flags.sum(axis=1)
-    cumsum = out.groupby([TYPE_COL, PRODUCT_ID_COL], observed=True)[
-        "failures_sum"
-    ].cumsum()
+    cumsum = out.groupby([TYPE_COL, PRODUCT_ID_COL], observed=True)["failures_sum"].cumsum()
     # вычитаем текущую строку, чтобы считать только прошлые отказы
     out["total_failures_cum"] = cumsum - out["failures_sum"]
     out = out.drop(columns=["failures_sum"])
@@ -50,9 +44,7 @@ def build_features(df: pd.DataFrame, is_train: bool = True) -> pd.DataFrame:
     return out.reset_index(drop=True)
 
 
-def get_feature_matrix(
-    df: pd.DataFrame, include_target: bool = True
-) -> tuple[pd.DataFrame, pd.Series | None]:
+def get_feature_matrix(df: pd.DataFrame, include_target: bool = True) -> tuple[pd.DataFrame, pd.Series | None]:
     """Return x and optional y for modeling."""
     missing = [c for c in MODEL_FEATURES if c not in df.columns]
     if missing:

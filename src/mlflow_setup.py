@@ -19,9 +19,7 @@ def _normalize_artifact_uri(uri: str) -> str:
 def _artifact_uri_matches(actual: str, expected: str) -> bool:
     actual_norm = _normalize_artifact_uri(actual)
     expected_norm = _normalize_artifact_uri(expected)
-    return actual_norm == expected_norm or actual_norm.endswith(
-        "/artifacts/mlartifacts"
-    )
+    return actual_norm == expected_norm or actual_norm.endswith("/artifacts/mlartifacts")
 
 
 def _reset_tracking_store() -> None:
@@ -37,9 +35,7 @@ def setup_mlflow() -> None:
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
     experiment = mlflow.get_experiment_by_name(MLFLOW_EXPERIMENT_NAME)
-    if experiment is not None and not _artifact_uri_matches(
-        experiment.artifact_location, MLFLOW_ARTIFACTS_URI
-    ):
+    if experiment is not None and not _artifact_uri_matches(experiment.artifact_location, MLFLOW_ARTIFACTS_URI):
         _reset_tracking_store()
         mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 

@@ -44,9 +44,7 @@ def predict(
     model_path = model_path or output_dir / "model.cbm"
 
     if not model_path.exists():
-        raise FileNotFoundError(
-            f"Model not found at {model_path}. Run: python -m src.train"
-        )
+        raise FileNotFoundError(f"Model not found at {model_path}. Run: python -m src.train")
 
     model = CatBoostClassifier()
     model.load_model(str(model_path))
@@ -59,9 +57,7 @@ def predict(
     pool = Pool(x, cat_features=cat_idx)
     probabilities = model.predict_proba(pool)[:, 1]
 
-    result = test_df[
-        [c for c in ["id", PRODUCT_ID_COL, TYPE_COL] if c in test_df.columns]
-    ].copy()
+    result = test_df[[c for c in ["id", PRODUCT_ID_COL, TYPE_COL] if c in test_df.columns]].copy()
     if "id" not in result.columns:
         result = test_df[[PRODUCT_ID_COL, TYPE_COL]].copy()
 
@@ -104,9 +100,7 @@ def predict(
     return result
 
 
-def build_recommendations(
-    predictions: pd.DataFrame, features: pd.DataFrame
-) -> pd.DataFrame:
+def build_recommendations(predictions: pd.DataFrame, features: pd.DataFrame) -> pd.DataFrame:
     """
     На основании полученных предсказаний формирует рекоммендации
     для последующего улучшения качества модели

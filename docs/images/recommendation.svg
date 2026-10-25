@@ -1,0 +1,181 @@
+<svg class="dark " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1270.83 1960.59" width="1270.83" height="1960.59">
+  <style>:root, .light {
+    --_lm: ;
+    --_dm: initial;
+    --bg: #ffffff;
+    --fg: #1f1f1f;
+    --line: #545454;
+    --accent: #1a73e8;
+    --surface: #f8f9fa;
+    --border: #747775;
+  }
+
+  .dark {
+    --_lm: initial;
+    --_dm: ;
+    --bg: #1f1f1f;
+    --fg: #e3e3e3;
+    --line: #bfbfbf;
+    --accent: #8ab4f8;
+    --surface: #2d2e30;
+    --border: #8e918f;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Google Sans', sans-serif; }
+  svg {
+    --_text:          var(--primaryTextColor, var(--fg));
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--lineColor, var(--defaultLinkColor, var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)))));
+    --_arrow:         var(--_line);
+    --_node-fill:     var(--primaryColor, var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg))));
+    --_node-stroke:   var(--primaryBorderColor, var(--nodeBorder, var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)))));
+    --_group-fill:    var(--surface, var(--bg));
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  var(--_node-stroke);
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+.node-shape { fill: var(--nodeBkg, var(--_node-fill)); stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-circle-inner { fill: none; stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-subroutine-divider { stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-label { fill: var(--nodeTextColor, var(--_text)); }
+.edge { fill: none; stroke: var(--_line); stroke-width: 1.5; }
+.edge-label-text { fill: var(--_text-sec); }
+.edge-label-bg { fill: var(--bg); stroke: var(--_inner-stroke); stroke-width: 1.0; }
+.subgraph-box { fill: var(--_group-fill); stroke: var(--_node-stroke); stroke-width: 1.0; }
+.subgraph-header { fill: var(--_group-hdr); stroke: var(--_node-stroke); stroke-width: 1.0; }
+.subgraph-title { fill: var(--_text-sec); font-weight: 600; }</style>
+  <defs>
+    <marker id="flow-arrow" refX="7" refY="2" markerWidth="7" markerHeight="4" orient="auto-start-reverse">
+      <polygon points="0,0 7,2 0,4" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.5" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <g transform="translate(71.21, -35)">
+    <path d="M 672.91 233.37 L 672.91 293.37" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Start" data-to="Fork" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 630.48 477.31 L 630.48 517.1 Q 630.48 523.1, 624.48 523.1 L 339.24 523.1 Q 333.24 523.1, 333.24 529.1 L 333.24 550.15" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Fork" data-to="CheckEff" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 333.24 697.51 L 333.24 730.56 Q 333.24 736.56, 327.24 736.56 L 136.77 736.56 Q 130.77 736.56, 130.77 742.56 L 130.77 820.56" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckEff" data-to="AddEff" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Да"/>
+    <path d="M 474.05 623.83 L 484.05 623.83 Q 490.05 623.83, 490.05 629.83 L 490.05 730.56 Q 490.05 736.56, 484.05 736.56 L 368.76 736.56 Q 362.76 736.56, 362.76 742.56 L 362.76 1092.71 Q 362.76 1098.71, 368.76 1098.71 L 542.88 1098.71" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckEff" data-to="Join" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Нет"/>
+    <path d="M 672.91 487.1 L 672.91 549.82" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Fork" data-to="CheckWear" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 667.47 700.56 L 667.47 820.56" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckWear" data-to="AddWear" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Да"/>
+    <path d="M 820.9 623.83 L 830.9 623.83 Q 836.9 623.83, 836.9 629.83 L 836.9 730.56 Q 836.9 736.56, 830.9 736.56 L 762.01 736.56 Q 756.01 736.56, 756.01 742.56 L 756.01 1073.19 Q 756.01 1079.19, 750.01 1079.19 L 681.22 1079.19" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckWear" data-to="Join" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Нет"/>
+    <path d="M 715.35 477.31 L 715.35 517.1 Q 715.35 523.1, 721.35 523.1 L 1001.14 523.1 Q 1007.14 523.1, 1007.14 529.1 L 1007.14 559.35" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Fork" data-to="CheckRisk" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 1007.14 688.31 L 1007.14 820.56" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckRisk" data-to="AddRisk" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Да"/>
+    <path d="M 1153.38 623.83 L 1178.61 623.83 Q 1184.61 623.83, 1184.61 629.83 L 1184.61 1112.23 Q 1184.61 1118.23, 1178.61 1118.23 L 681.22 1118.23" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckRisk" data-to="Join" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Нет"/>
+    <path d="M 130.77 908.16 L 130.77 938.16 Q 130.77 944.16, 136.77 944.16 L 578.15 944.16 Q 584.15 944.16, 584.15 950.16 L 584.15 1034.52" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="AddEff" data-to="Join" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 613.43 908.16 L 613.43 1028.16" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="AddWear" data-to="Join" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 970.31 908.16 L 970.31 938.16 Q 970.31 944.16, 964.31 944.16 L 648.7 944.16 Q 642.7 944.16, 642.7 950.16 L 642.7 1034.52" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="AddRisk" data-to="Join" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 613.43 1169.26 L 613.43 1229.26" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Join" data-to="CheckRows" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 613.43 1347.17 L 613.43 1467.17" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckRows" data-to="AddDefault" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Нет"/>
+    <path d="M 736.79 1288.21 L 746.79 1288.21 Q 752.79 1288.21, 752.79 1294.21 L 752.79 1377.17 Q 752.79 1383.17, 746.79 1383.17 L 718.5 1383.17 Q 712.5 1383.17, 712.5 1389.17 L 712.5 1695.67 Q 712.5 1701.67, 706.5 1701.67 L 674.73 1701.67" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckRows" data-to="Output" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Да"/>
+    <path d="M 551.39 1554.77 L 551.39 1674.77" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="AddDefault" data-to="Output" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 551.39 1728.57 L 551.39 1788.57" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Output" data-to="End" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <g class="edge-label" data-from="CheckEff" data-to="AddEff" data-label="Да">
+      <rect x="220.03" y="725.41" width="23.95" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="232.01" y="736.56" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Да</text>
+    </g>
+    <g class="edge-label" data-from="CheckEff" data-to="Join" data-label="Нет">
+      <rect x="437.27" y="1087.56" width="31.1" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="452.82" y="1098.71" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Нет</text>
+    </g>
+    <g class="edge-label" data-from="CheckWear" data-to="AddWear" data-label="Да">
+      <rect x="655.5" y="749.41" width="23.95" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="667.47" y="760.56" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Да</text>
+    </g>
+    <g class="edge-label" data-from="CheckWear" data-to="Join" data-label="Нет">
+      <rect x="740.46" y="896.73" width="31.1" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="756.01" y="907.88" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Нет</text>
+    </g>
+    <g class="edge-label" data-from="CheckRisk" data-to="AddRisk" data-label="Да">
+      <rect x="995.17" y="743.28" width="23.95" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="1007.14" y="754.43" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Да</text>
+    </g>
+    <g class="edge-label" data-from="CheckRisk" data-to="Join" data-label="Нет">
+      <rect x="917.37" y="1107.08" width="31.1" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="932.92" y="1118.23" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Нет</text>
+    </g>
+    <g class="edge-label" data-from="CheckRows" data-to="AddDefault" data-label="Нет">
+      <rect x="597.88" y="1396.02" width="31.1" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="613.43" y="1407.17" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Нет</text>
+    </g>
+    <g class="edge-label" data-from="CheckRows" data-to="Output" data-label="Да">
+      <rect x="700.52" y="1531.27" width="23.95" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="712.5" y="1542.42" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Да</text>
+    </g>
+    <g class="node" id="node-Start" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="Start" data-label="Поступление данных 
+ о работе станков" data-shape="circle">
+      <circle cx="672.91" cy="141.68" r="91.68" class="node-shape node-circle"/>
+      <text x="672.91" y="141.68" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="672.91" dy="-3.58px">Поступление данных </tspan><tspan x="672.91" dy="16.25px"> о работе станков</tspan></text>
+    </g>
+    <g class="node" id="node-Fork" data-id="Fork" data-label="Параллельный анализ" data-shape="doublecircle">
+      <circle cx="672.91" cy="390.23" r="96.87" class="node-shape node-circle"/>
+      <circle cx="672.91" cy="390.23" r="92.87" class="node-shape node-circle-inner"/>
+      <text x="672.91" y="390.23" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Параллельный анализ</text>
+    </g>
+    <g class="node" id="node-CheckEff" style="--_node-fill: var(--_dm, #fff2cc) var(--_lm, #6a5109); --_node-stroke: var(--_dm, #886e21) var(--_lm, #d6b656); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="CheckEff" data-label="Более 10% времени 
+ станок работал 
+ с КПД ниже 50%?" data-shape="diamond">
+      <polygon points="333.24,550.15 474.05,623.83 333.24,697.51 192.44,623.83" class="node-shape node-polygon"/>
+      <text x="333.24" y="623.83" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="333.24" dy="-11.7px">Более 10% времени </tspan><tspan x="333.24" dy="16.25px"> станок работал </tspan><tspan x="333.24" dy="16.25px"> с КПД ниже 50%?</tspan></text>
+    </g>
+    <g class="node" id="node-CheckWear" style="--_node-fill: var(--_dm, #fff2cc) var(--_lm, #6a5109); --_node-stroke: var(--_dm, #886e21) var(--_lm, #d6b656); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="CheckWear" data-label="Инструмент изношен 
+ сильнее нормы 
+ для 90% станков?" data-shape="diamond">
+      <polygon points="667.47,547.1 820.9,623.83 667.47,700.56 514.05,623.83" class="node-shape node-polygon"/>
+      <text x="667.47" y="623.83" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="667.47" dy="-11.7px">Инструмент изношен </tspan><tspan x="667.47" dy="16.25px"> сильнее нормы </tspan><tspan x="667.47" dy="16.25px"> для 90% станков?</tspan></text>
+    </g>
+    <g class="node" id="node-CheckRisk" style="--_node-fill: var(--_dm, #fff2cc) var(--_lm, #6a5109); --_node-stroke: var(--_dm, #886e21) var(--_lm, #d6b656); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="CheckRisk" data-label="Есть ли риск 
+ внезапного отказа?" data-shape="diamond">
+      <polygon points="1007.14,559.35 1153.38,623.83 1007.14,688.31 860.9,623.83" class="node-shape node-polygon"/>
+      <text x="1007.14" y="623.83" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="1007.14" dy="-3.58px">Есть ли риск </tspan><tspan x="1007.14" dy="16.25px"> внезапного отказа?</tspan></text>
+    </g>
+    <g class="node" id="node-AddEff" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="AddEff" data-label="⚠️ Добавить в отчет: 
+&lt;b>Низкая эффективность системы&lt;/b>
+&lt;i>Решение: Настроить параметры оборудования&lt;/i>
+Приоритет: ВЫСОКИЙ" data-shape="rectangle">
+      <rect x="-56.21" y="820.56" width="373.97" height="87.6" class="node-shape node-rect"/>
+      <text x="130.77" y="864.36" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="130.77" dy="-19.83px">⚠️ Добавить в отчет: </tspan><tspan x="130.77" dy="16.25px"><tspan font-weight="bold">Низкая эффективность системы</tspan></tspan><tspan x="130.77" dy="16.25px"><tspan font-style="italic">Решение: Настроить параметры оборудования</tspan></tspan><tspan x="130.77" dy="16.25px">Приоритет: ВЫСОКИЙ</tspan></text>
+    </g>
+    <g class="node" id="node-AddWear" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="AddWear" data-label="⚠️ Добавить в отчет: 
+&lt;b>Критический износ инструмента&lt;/b>
+&lt;i>Решение: Провести плановую замену&lt;/i>
+Приоритет: ВЫСОКИЙ" data-shape="rectangle">
+      <rect x="407.76" y="820.56" width="303.25" height="87.6" class="node-shape node-rect"/>
+      <text x="559.38" y="864.36" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="559.38" dy="-19.83px">⚠️ Добавить в отчет: </tspan><tspan x="559.38" dy="16.25px"><tspan font-weight="bold">Критический износ инструмента</tspan></tspan><tspan x="559.38" dy="16.25px"><tspan font-style="italic">Решение: Провести плановую замену</tspan></tspan><tspan x="559.38" dy="16.25px">Приоритет: ВЫСОКИЙ</tspan></text>
+    </g>
+    <g class="node" id="node-AddRisk" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="AddRisk" data-label="🚨 Добавить в отчет: 
+&lt;b>Высокий риск отказа&lt;/b>
+&lt;i>Решение: Срочное целевое обслуживание&lt;/i>
+Приоритет: ВЫСОКИЙ" data-shape="rectangle">
+      <rect x="801.01" y="820.56" width="338.61" height="87.6" class="node-shape node-rect"/>
+      <text x="970.31" y="864.36" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="970.31" dy="-19.83px">🚨 Добавить в отчет: </tspan><tspan x="970.31" dy="16.25px"><tspan font-weight="bold">Высокий риск отказа</tspan></tspan><tspan x="970.31" dy="16.25px"><tspan font-style="italic">Решение: Срочное целевое обслуживание</tspan></tspan><tspan x="970.31" dy="16.25px">Приоритет: ВЫСОКИЙ</tspan></text>
+    </g>
+    <g class="node" id="node-Join" data-id="Join" data-label="Сборка отчета" data-shape="doublecircle">
+      <circle cx="613.43" cy="1098.71" r="70.55" class="node-shape node-circle"/>
+      <circle cx="613.43" cy="1098.71" r="66.55" class="node-shape node-circle-inner"/>
+      <text x="613.43" y="1098.71" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Сборка отчета</text>
+    </g>
+    <g class="node" id="node-CheckRows" style="--_node-fill: var(--_dm, #fff2cc) var(--_lm, #6a5109); --_node-stroke: var(--_dm, #886e21) var(--_lm, #d6b656); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="CheckRows" data-label="Найдена хотя бы 
+ одна проблема?" data-shape="diamond">
+      <polygon points="613.43,1229.26 736.79,1288.21 613.43,1347.17 490.06,1288.21" class="node-shape node-polygon"/>
+      <text x="613.43" y="1288.21" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="613.43" dy="-3.58px">Найдена хотя бы </tspan><tspan x="613.43" dy="16.25px"> одна проблема?</tspan></text>
+    </g>
+    <g class="node" id="node-AddDefault" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="AddDefault" data-label="✅ Добавить в отчет: 
+&lt;b>Стабильное состояние&lt;/b>
+&lt;i>Решение: Продолжить плановый мониторинг&lt;/i>
+Приоритет: НИЗКИЙ" data-shape="rectangle">
+      <rect x="311.21" y="1467.17" width="356.29" height="87.6" class="node-shape node-rect"/>
+      <text x="489.35" y="1510.97" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="489.35" dy="-19.83px">✅ Добавить в отчет: </tspan><tspan x="489.35" dy="16.25px"><tspan font-weight="bold">Стабильное состояние</tspan></tspan><tspan x="489.35" dy="16.25px"><tspan font-style="italic">Решение: Продолжить плановый мониторинг</tspan></tspan><tspan x="489.35" dy="16.25px">Приоритет: НИЗКИЙ</tspan></text>
+    </g>
+    <g class="node" id="node-Output" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="Output" data-label="📊 Формирование итогового 
+ отчета для диспетчера" data-shape="rectangle">
+      <rect x="428.05" y="1674.77" width="246.67" height="53.8" class="node-shape node-rect"/>
+      <text x="551.39" y="1701.67" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="551.39" dy="-3.58px">📊 Формирование итогового </tspan><tspan x="551.39" dy="16.25px"> отчета для диспетчера</tspan></text>
+    </g>
+    <g class="node" id="node-End" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="End" data-label="Выдача рекомендаций 
+ на экран / в ERP" data-shape="circle">
+      <circle cx="551.39" cy="1884.58" r="96.01" class="node-shape node-circle"/>
+      <text x="551.39" y="1884.58" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="551.39" dy="-3.58px">Выдача рекомендаций </tspan><tspan x="551.39" dy="16.25px"> на экран / в ERP</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,147 @@
+<svg class="dark " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.92 1391.56" width="1024.92" height="1391.56">
+  <style>:root, .light {
+    --_lm: ;
+    --_dm: initial;
+    --bg: #ffffff;
+    --fg: #1f1f1f;
+    --line: #545454;
+    --accent: #1a73e8;
+    --surface: #f8f9fa;
+    --border: #747775;
+  }
+
+  .dark {
+    --_lm: initial;
+    --_dm: ;
+    --bg: #1f1f1f;
+    --fg: #e3e3e3;
+    --line: #bfbfbf;
+    --accent: #8ab4f8;
+    --surface: #2d2e30;
+    --border: #8e918f;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Google Sans', sans-serif; }
+  svg {
+    --_text:          var(--primaryTextColor, var(--fg));
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--lineColor, var(--defaultLinkColor, var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)))));
+    --_arrow:         var(--_line);
+    --_node-fill:     var(--primaryColor, var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg))));
+    --_node-stroke:   var(--primaryBorderColor, var(--nodeBorder, var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)))));
+    --_group-fill:    var(--surface, var(--bg));
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  var(--_node-stroke);
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+.node-shape { fill: var(--nodeBkg, var(--_node-fill)); stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-circle-inner { fill: none; stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-subroutine-divider { stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-label { fill: var(--nodeTextColor, var(--_text)); }
+.edge { fill: none; stroke: var(--_line); stroke-width: 1.5; }
+.edge-label-text { fill: var(--_text-sec); }
+.edge-label-bg { fill: var(--bg); stroke: var(--_inner-stroke); stroke-width: 1.0; }
+.subgraph-box { fill: var(--_group-fill); stroke: var(--_node-stroke); stroke-width: 1.0; }
+.subgraph-header { fill: var(--_group-hdr); stroke: var(--_node-stroke); stroke-width: 1.0; }
+.subgraph-title { fill: var(--_text-sec); font-weight: 600; }</style>
+  <defs>
+    <marker id="flow-arrow" refX="7" refY="2" markerWidth="7" markerHeight="4" orient="auto-start-reverse">
+      <polygon points="0,0 7,2 0,4" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.5" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <g transform="translate(-35, -35)">
+    <path d="M 522.51 239.52 L 522.51 299.52" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Start" data-to="CalcProb" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 522.51 336.42 L 522.51 396.42" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CalcProb" data-to="CheckQuantile" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 408.31 453.16 L 181.86 453.16 Q 175.86 453.16, 175.86 459.16 L 175.86 638.35" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckQuantile" data-to="LowRisk" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Низкий риcк 
+ (квантиль &lt; 0.5)"/>
+    <path d="M 522.51 509.9 L 522.51 638.35" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckQuantile" data-to="MedRisk" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Средний риск 
+ (квантиль 0.5 - 0.9)"/>
+    <path d="M 636.71 453.16 L 865.06 453.16 Q 871.06 453.16, 871.06 459.16 L 871.06 629.9" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="CheckQuantile" data-to="HighRisk" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Высокий риск 
+ (квантиль > 0.9)"/>
+    <path d="M 175.86 675.25 L 175.86 752.15" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="LowRisk" data-to="LogStatus" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 175.86 789.05 L 175.86 857.5" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="LogStatus" data-to="EndLow" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 522.51 675.25 L 522.51 743.7" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="MedRisk" data-to="WaitTask" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 522.51 797.5 L 522.51 857.5" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="WaitTask" data-to="EndMed" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 871.06 683.7 L 871.06 752.15" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="HighRisk" data-to="NotifyTeam" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 871.06 789.05 L 871.06 931.92" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="NotifyTeam" data-to="RepairAction" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 871.06 968.82 L 871.06 1103.23" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="RepairAction" data-to="FeedbackLoop" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 871.06 1157.03 L 871.06 1217.03" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="FeedbackLoop" data-to="EndHigh" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <g class="edge-label" data-from="CheckQuantile" data-to="LowRisk" data-label="Низкий риcк 
+ (квантиль &lt; 0.5)">
+      <rect x="122.09" y="527.45" width="107.53" height="36.6" rx="2" ry="2" class="edge-label-bg"/>
+      <text x="175.86" y="545.75" font-size="11" class="edge-label-text" text-anchor="middle"><tspan x="175.86" dy="-3.03px">Низкий риcк </tspan><tspan x="175.86" dy="13.75px"> (квантиль &lt; 0.5)</tspan></text>
+    </g>
+    <g class="edge-label" data-from="CheckQuantile" data-to="MedRisk" data-label="Средний риск 
+ (квантиль 0.5 - 0.9)">
+      <rect x="460.41" y="555.82" width="124.19" height="36.6" rx="2" ry="2" class="edge-label-bg"/>
+      <text x="522.51" y="574.12" font-size="11" class="edge-label-text" text-anchor="middle"><tspan x="522.51" dy="-3.03px">Средний риск </tspan><tspan x="522.51" dy="13.75px"> (квантиль 0.5 - 0.9)</tspan></text>
+    </g>
+    <g class="edge-label" data-from="CheckQuantile" data-to="HighRisk" data-label="Высокий риск 
+ (квантиль > 0.9)">
+      <rect x="817.3" y="523.23" width="107.53" height="36.6" rx="2" ry="2" class="edge-label-bg"/>
+      <text x="871.06" y="541.53" font-size="11" class="edge-label-text" text-anchor="middle"><tspan x="871.06" dy="-3.03px">Высокий риск </tspan><tspan x="871.06" dy="13.75px"> (квантиль &gt; 0.9)</tspan></text>
+    </g>
+    <g class="node" id="node-Start" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="Start" data-label="Старт такта контроля" data-shape="circle">
+      <circle cx="522.51" cy="144.76" r="94.76" class="node-shape node-circle"/>
+      <text x="522.51" y="144.76" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Старт такта контроля</text>
+    </g>
+    <g class="node" id="node-CalcProb" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="CalcProb" data-label="Сбор данных с датчиков и расчет риска поломки" data-shape="rectangle">
+      <rect x="325.27" y="299.52" width="394.48" height="36.9" class="node-shape node-rect"/>
+      <text x="522.51" y="317.97" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Сбор данных с датчиков и расчет риска поломки</text>
+    </g>
+    <g class="node" id="node-CheckQuantile" style="--_node-fill: var(--_dm, #fff2cc) var(--_lm, #6a5109); --_node-stroke: var(--_dm, #886e21) var(--_lm, #d6b656); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="CheckQuantile" data-label="Каков уровень 
+ риска?" data-shape="diamond">
+      <polygon points="522.51,396.42 636.71,453.16 522.51,509.9 408.31,453.16" class="node-shape node-polygon"/>
+      <text x="522.51" y="453.16" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="522.51" dy="-3.58px">Каков уровень </tspan><tspan x="522.51" dy="16.25px"> риска?</tspan></text>
+    </g>
+    <g class="node" id="node-LowRisk" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="LowRisk" data-label="Режим штатной эксплуатации" data-shape="rectangle">
+      <rect x="50" y="638.35" width="251.71" height="36.9" class="node-shape node-rect"/>
+      <text x="175.86" y="656.8" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Режим штатной эксплуатации</text>
+    </g>
+    <g class="node" id="node-MedRisk" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="MedRisk" data-label="Отправка предупреждения диспетчеру цеха" data-shape="rectangle">
+      <rect x="341.71" y="638.35" width="361.59" height="36.9" class="node-shape node-rect"/>
+      <text x="522.51" y="656.8" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Отправка предупреждения диспетчеру цеха</text>
+    </g>
+    <g class="node" id="node-HighRisk" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="HighRisk" data-label="🚨 Автоматическое создание 
+ экстренного наряда в ERP" data-shape="rectangle">
+      <rect x="743.31" y="629.9" width="255.51" height="53.8" class="node-shape node-rect"/>
+      <text x="871.06" y="656.8" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="871.06" dy="-3.58px">🚨 Автоматическое создание </tspan><tspan x="871.06" dy="16.25px"> экстренного наряда в ERP</tspan></text>
+    </g>
+    <g class="node" id="node-LogStatus" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="LogStatus" data-label="Запись в журнал: Всё в норме" data-shape="rectangle">
+      <rect x="51.37" y="752.15" width="248.97" height="36.9" class="node-shape node-rect"/>
+      <text x="175.86" y="770.6" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Запись в журнал: Всё в норме</text>
+    </g>
+    <g class="node" id="node-WaitTask" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="WaitTask" data-label="Включение проверки станка 
+ в план ближайшего техобслуживания" data-shape="rectangle">
+      <rect x="366.33" y="743.7" width="312.35" height="53.8" class="node-shape node-rect"/>
+      <text x="522.51" y="770.6" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="522.51" dy="-3.58px">Включение проверки станка </tspan><tspan x="522.51" dy="16.25px"> в план ближайшего техобслуживания</tspan></text>
+    </g>
+    <g class="node" id="node-NotifyTeam" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="NotifyTeam" data-label="Оповещение ремонтной бригады" data-shape="rectangle">
+      <rect x="736.37" y="752.15" width="269.39" height="36.9" class="node-shape node-rect"/>
+      <text x="871.06" y="770.6" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Оповещение ремонтной бригады</text>
+    </g>
+    <g class="node" id="node-EndLow" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="EndLow" data-label="Завершение контроля" data-shape="circle">
+      <circle cx="175.86" cy="950.37" r="92.87" class="node-shape node-circle"/>
+      <text x="175.86" y="950.37" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Завершение контроля</text>
+    </g>
+    <g class="node" id="node-EndMed" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="EndMed" data-label="Завершение контроля" data-shape="circle">
+      <circle cx="522.51" cy="950.37" r="92.87" class="node-shape node-circle"/>
+      <text x="522.51" y="950.37" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Завершение контроля</text>
+    </g>
+    <g class="node" id="node-RepairAction" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="RepairAction" data-label="Выезд ремонтников и устранение дефекта" data-shape="rectangle">
+      <rect x="697.21" y="931.92" width="347.71" height="36.9" class="node-shape node-rect"/>
+      <text x="871.06" y="950.37" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Выезд ремонтников и устранение дефекта</text>
+    </g>
+    <g class="node" id="node-FeedbackLoop" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="FeedbackLoop" data-label="Фиксация исхода: поломка 
+ подтвердилась или была ложной" data-shape="rectangle">
+      <rect x="732.57" y="1103.23" width="276.99" height="53.8" class="node-shape node-rect"/>
+      <text x="871.06" y="1130.13" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="871.06" dy="-3.58px">Фиксация исхода: поломка </tspan><tspan x="871.06" dy="16.25px"> подтвердилась или была ложной</tspan></text>
+    </g>
+    <g class="node" id="node-EndHigh" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="EndHigh" data-label="Завершение инцидента" data-shape="circle">
+      <circle cx="871.06" cy="1314.3" r="97.27" class="node-shape node-circle"/>
+      <text x="871.06" y="1314.3" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">Завершение инцидента</text>
+    </g>
+  </g>
+</svg>

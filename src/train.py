@@ -6,6 +6,8 @@ import time
 from pathlib import Path
 
 import mlflow
+from mlflow.tracking import MlflowClient
+from mlflow.exceptions import MlflowException
 import mlflow.catboost
 from catboost import CatBoostClassifier, Pool
 from sklearn.metrics import (
@@ -24,6 +26,7 @@ from src.config import (
     RANDOM_STATE,
     SMOKE_SAMPLE_SIZE,
     TRAIN_TEST_SIZE,
+    MLFLOW_EXPERIMENT_NAME
 )
 from src.etl.features import build_features, get_feature_matrix
 from src.etl.load import load_train
@@ -152,8 +155,44 @@ def train_model(
         )
         mlflow.log_artifact(str(plots_dir / "model_metrics.png"))
         mlflow.log_artifact(str(plots_dir / "infrastructure_training.png"))
+        
+        model_name = f"{MLFLOW_EXPERIMENT_NAME}_Model"
+        alias_champion = "champion"
+        
+        model_info = mlflow.catboost.log_model(
+            model, 
+            "model",
+            registered_model_name=model_name
+        )
+        new_version = model_info.registered_model_version
+        
+        client = MlflowClient()
+        current_score = metrics["recall"]
+        metric_name = "recall"
 
-        mlflow.catboost.log_model(model, "model")
+        try:
+            champion_info = client.get_model_version_by_alias(model_name, alias_champion)
+            champion_run = client.get_run(champion_info.run_id)
+            champion_score = champion_run.data.metrics.get(metric_name, 0.0)
+            
+            print(f"[Retrain] Текущий чемпион: Версия {champion_info.version} ({metric_name}: {champion_score:.4f})")
+            print(f"[Retrain] Новая модель: Версия {new_version} ({metric_name}: {current_score:.4f})")
+
+            if current_score > champion_score:
+                print(f"Новая модель лучше! Переключаем алиас '{alias_champion}' на версию {new_version}")
+                client.set_registered_model_alias(model_name, alias_champion, new_version)
+                mlflow.set_tag("retrain_status", "promoted_to_champion")
+            else:
+                print("Новая модель не превзошла чемпиона. Оставляем старую версию на проде.")
+                mlflow.set_tag("retrain_status", "rejected")
+                
+        except MlflowException as e:
+            if "not found" in str(e).lower() or "does not exist" in str(e).lower():
+                print(f"Первый запуск проекта. Назначаем версию {new_version} чемпионом.")
+                client.set_registered_model_alias(model_name, alias_champion, new_version)
+                mlflow.set_tag("retrain_status", "first_champion")
+            else:
+                raise e
 
     return metrics
 

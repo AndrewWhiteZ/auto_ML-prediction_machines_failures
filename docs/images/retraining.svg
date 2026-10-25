@@ -1,0 +1,147 @@
+<svg class="dark " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 696.79 1492.21" width="696.79" height="1492.21">
+  <style>:root, .light {
+    --_lm: ;
+    --_dm: initial;
+    --bg: #ffffff;
+    --fg: #1f1f1f;
+    --line: #545454;
+    --accent: #1a73e8;
+    --surface: #f8f9fa;
+    --border: #747775;
+  }
+
+  .dark {
+    --_lm: initial;
+    --_dm: ;
+    --bg: #1f1f1f;
+    --fg: #e3e3e3;
+    --line: #bfbfbf;
+    --accent: #8ab4f8;
+    --surface: #2d2e30;
+    --border: #8e918f;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Google Sans', sans-serif; }
+  svg {
+    --_text:          var(--primaryTextColor, var(--fg));
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--lineColor, var(--defaultLinkColor, var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)))));
+    --_arrow:         var(--_line);
+    --_node-fill:     var(--primaryColor, var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg))));
+    --_node-stroke:   var(--primaryBorderColor, var(--nodeBorder, var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)))));
+    --_group-fill:    var(--surface, var(--bg));
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  var(--_node-stroke);
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+.node-shape { fill: var(--nodeBkg, var(--_node-fill)); stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-circle-inner { fill: none; stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-subroutine-divider { stroke: var(--nodeBorder, var(--_node-stroke)); stroke-width: var(--_node-stroke-width, 1px); }
+.node-label { fill: var(--nodeTextColor, var(--_text)); }
+.edge { fill: none; stroke: var(--_line); stroke-width: 1.5; }
+.edge-label-text { fill: var(--_text-sec); }
+.edge-label-bg { fill: var(--bg); stroke: var(--_inner-stroke); stroke-width: 1.0; }
+.subgraph-box { fill: var(--_group-fill); stroke: var(--_node-stroke); stroke-width: 1.0; }
+.subgraph-header { fill: var(--_group-hdr); stroke: var(--_node-stroke); stroke-width: 1.0; }
+.subgraph-title { fill: var(--_text-sec); font-weight: 600; }</style>
+  <defs>
+    <marker id="flow-arrow" refX="7" refY="2" markerWidth="7" markerHeight="4" orient="auto-start-reverse">
+      <polygon points="0,0 7,2 0,4" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.5" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <g transform="translate(-29.01, -35)">
+    <path d="M 111.68 235.7 L 111.68 328.03 Q 111.68 334.03, 117.68 334.03 L 295.82 334.03 Q 301.82 334.03, 301.82 340.03 L 301.82 359.97" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="T1" data-to="ForkT" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 312.51 278.57 L 312.51 358.03" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="T2" data-to="ForkT" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 586.78 298.03 L 586.78 328.03 Q 586.78 334.03, 580.78 334.03 L 329.21 334.03 Q 323.21 334.03, 323.21 340.03 L 323.21 359.97" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="T3" data-to="ForkT" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 312.51 419.14 L 312.51 479.14" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="ForkT" data-to="P1" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 312.51 532.94 L 312.51 592.94" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="P1" data-to="P2" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 312.51 646.74 L 312.51 706.74" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="P2" data-to="P3" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 312.51 760.54 L 312.51 820.54" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="P3" data-to="Gate" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 169.92 884.13 L 159.92 884.13 Q 153.92 884.13, 153.92 890.13 L 153.92 977.73 Q 153.92 983.73, 159.92 983.73 L 163.92 983.73 Q 169.92 983.73, 169.92 989.73 L 169.92 1067.73" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Gate" data-to="S1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Да"/>
+    <path d="M 167.34 1121.53 L 167.34 1181.53" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="S1" data-to="S2" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 167.34 1235.33 L 167.34 1312.82" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="S2" data-to="S3" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 455.11 884.13 L 465.11 884.13 Q 471.11 884.13, 471.11 890.13 L 471.11 977.73 Q 471.11 983.73, 465.11 983.73 L 461.11 983.73 Q 455.11 983.73, 455.11 989.73 L 455.11 1067.73" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="Gate" data-to="F1" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Нет"/>
+    <path d="M 457.69 1121.53 L 457.69 1181.53" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="F1" data-to="F2" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <path d="M 457.69 1235.33 L 457.69 1295.33" class="edge" fill="none" stroke="var(--_line)" stroke-width="1.5" marker-end="url(#flow-arrow)" data-from="F2" data-to="F3" data-style="solid" data-arrow-start="false" data-arrow-end="true"/>
+    <g class="edge-label" data-from="Gate" data-to="S1" data-label="Да">
+      <rect x="129.95" y="922.78" width="23.95" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="141.92" y="933.93" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Да</text>
+    </g>
+    <g class="edge-label" data-from="Gate" data-to="F1" data-label="Нет">
+      <rect x="467.56" y="922.78" width="31.1" height="22.3" rx="11.15" ry="11.15" class="edge-label-bg"/>
+      <text x="483.11" y="933.93" font-size="11" class="edge-label-text" text-anchor="middle" dy="3.85px">Нет</text>
+    </g>
+    <g class="node" id="node-T1" style="--_node-fill: var(--_dm, #f8cecc) var(--_lm, #5d1714); --_node-stroke: var(--_dm, #b85450) var(--_lm, #ca7f7c); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="T1" data-label="Расписание: 
+1 раз в месяц" data-shape="circle">
+      <circle cx="111.68" cy="174.02" r="61.68" class="node-shape node-circle"/>
+      <text x="111.68" y="174.02" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="111.68" dy="-3.58px">Расписание: </tspan><tspan x="111.68" dy="16.25px">1 раз в месяц</tspan></text>
+    </g>
+    <g class="node" id="node-T2" style="--_node-fill: var(--_dm, #f8cecc) var(--_lm, #5d1714); --_node-stroke: var(--_dm, #b85450) var(--_lm, #ca7f7c); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="T2" data-label="Сигнал MLOps: 
+Обнаружен дрейф данных" data-shape="circle">
+      <circle cx="318.07" cy="174.02" r="104.7" class="node-shape node-circle"/>
+      <text x="318.07" y="174.02" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="318.07" dy="-3.58px">Сигнал MLOps: </tspan><tspan x="318.07" dy="16.25px">Обнаружен дрейф данных</tspan></text>
+    </g>
+    <g class="node" id="node-T3" style="--_node-fill: var(--_dm, #f8cecc) var(--_lm, #5d1714); --_node-stroke: var(--_dm, #b85450) var(--_lm, #ca7f7c); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="T3" data-label="Журнал ТОиР: 
+Добавлено >50 новых отказов" data-shape="circle">
+      <circle cx="586.78" cy="174.02" r="124.02" class="node-shape node-circle"/>
+      <text x="586.78" y="174.02" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="586.78" dy="-3.58px">Журнал ТОиР: </tspan><tspan x="586.78" dy="16.25px">Добавлено &gt;50 новых отказов</tspan></text>
+    </g>
+    <g class="node" id="node-ForkT" data-id="ForkT" data-label="ИЛИ" data-shape="doublecircle">
+      <circle cx="312.51" cy="388.59" r="30.55" class="node-shape node-circle"/>
+      <circle cx="312.51" cy="388.59" r="26.55" class="node-shape node-circle-inner"/>
+      <text x="312.51" y="388.59" font-size="13" class="node-label" font-weight="500" text-anchor="middle" dy="4.55px">ИЛИ</text>
+    </g>
+    <g class="node" id="node-P1" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="P1" data-label="Этап 1: Сбор и подготовка 
+ новых данных" data-shape="rectangle">
+      <rect x="199.52" y="479.14" width="225.99" height="53.8" class="node-shape node-rect"/>
+      <text x="312.51" y="506.04" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="312.51" dy="-3.58px">Этап 1: Сбор и подготовка </tspan><tspan x="312.51" dy="16.25px"> новых данных</tspan></text>
+    </g>
+    <g class="node" id="node-P2" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="P2" data-label="Этап 2: Обучение новой 
+ версии модели" data-shape="rectangle">
+      <rect x="207.61" y="592.94" width="209.81" height="53.8" class="node-shape node-rect"/>
+      <text x="312.51" y="619.84" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="312.51" dy="-3.58px">Этап 2: Обучение новой </tspan><tspan x="312.51" dy="16.25px"> версии модели</tspan></text>
+    </g>
+    <g class="node" id="node-P3" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="P3" data-label="Этап 3: Проверка качества 
+ Автоматический фильтр" data-shape="rectangle">
+      <rect x="194.35" y="706.74" width="236.33" height="53.8" class="node-shape node-rect"/>
+      <text x="312.51" y="733.64" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="312.51" dy="-3.58px">Этап 3: Проверка качества </tspan><tspan x="312.51" dy="16.25px"> Автоматический фильтр</tspan></text>
+    </g>
+    <g class="node" id="node-Gate" style="--_node-fill: var(--_dm, #fff2cc) var(--_lm, #6a5109); --_node-stroke: var(--_dm, #886e21) var(--_lm, #d6b656); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="Gate" data-label="Новая модель лучше 
+ текущей рабочей?" data-shape="diamond">
+      <polygon points="312.51,820.54 455.11,884.13 312.51,947.73 169.92,884.13" class="node-shape node-polygon"/>
+      <text x="312.51" y="884.13" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="312.51" dy="-3.58px">Новая модель лучше </tspan><tspan x="312.51" dy="16.25px"> текущей рабочей?</tspan></text>
+    </g>
+    <g class="node" id="node-S1" style="--_node-fill: var(--_dm, #dae8fc) var(--_lm, #103364); --_node-stroke: #6c8ebf; --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="S1" data-label="Этап 4: Регистрация 
+ в Model Registry" data-shape="rectangle">
+      <rect x="73.18" y="1067.73" width="188.33" height="53.8" class="node-shape node-rect"/>
+      <text x="167.34" y="1094.63" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="167.34" dy="-3.58px">Этап 4: Регистрация </tspan><tspan x="167.34" dy="16.25px"> в Model Registry</tspan></text>
+    </g>
+    <g class="node" id="node-F1" style="--_node-fill: var(--_dm, #f5f5f5) var(--_lm, #3c3c3c); --_node-stroke: var(--_dm, #666666) var(--_lm, #8c8c8c); --_node-stroke-width: 1.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="F1" data-label="Этап 4а: Отклонение модели 
+ и архивация" data-shape="rectangle">
+      <rect x="335.1" y="1067.73" width="245.17" height="53.8" class="node-shape node-rect"/>
+      <text x="457.69" y="1094.63" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="457.69" dy="-3.58px">Этап 4а: Отклонение модели </tspan><tspan x="457.69" dy="16.25px"> и архивация</tspan></text>
+    </g>
+    <g class="node" id="node-S2" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="S2" data-label="Этап 5: Авто-деплой 
+ Канареечный / Сине-зеленый" data-shape="rectangle">
+      <rect x="44.01" y="1181.53" width="246.67" height="53.8" class="node-shape node-rect"/>
+      <text x="167.34" y="1208.43" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="167.34" dy="-3.58px">Этап 5: Авто-деплой </tspan><tspan x="167.34" dy="16.25px"> Канареечный / Сине-зеленый</tspan></text>
+    </g>
+    <g class="node" id="node-F2" style="--_node-fill: var(--_dm, #f5f5f5) var(--_lm, #3c3c3c); --_node-stroke: var(--_dm, #666666) var(--_lm, #8c8c8c); --_node-stroke-width: 1.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="F2" data-label="Этап 5а: Оповещение команды 
+ Data Science Slack/Email" data-shape="rectangle">
+      <rect x="330.68" y="1181.53" width="254.01" height="53.8" class="node-shape node-rect"/>
+      <text x="457.69" y="1208.43" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="457.69" dy="-3.58px">Этап 5а: Оповещение команды </tspan><tspan x="457.69" dy="16.25px"> Data Science Slack/Email</tspan></text>
+    </g>
+    <g class="node" id="node-S3" style="--_node-fill: var(--_dm, #d5e8d4) var(--_lm, #264b24); --_node-stroke: var(--_dm, #608d46) var(--_lm, #82b366); --_node-stroke-width: 2.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="S3" data-label="Финиш: Новая модель 
+ в продакшене" data-shape="circle">
+      <circle cx="167.34" cy="1403.77" r="90.95" class="node-shape node-circle"/>
+      <text x="167.34" y="1403.77" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="167.34" dy="-3.58px">Финиш: Новая модель </tspan><tspan x="167.34" dy="16.25px"> в продакшене</tspan></text>
+    </g>
+    <g class="node" id="node-F3" style="--_node-fill: var(--_dm, #f5f5f5) var(--_lm, #3c3c3c); --_node-stroke: var(--_dm, #666666) var(--_lm, #8c8c8c); --_node-stroke-width: 1.0px; --nodeTextColor: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-sec: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1); --_text-muted: var(--_dm, #1f1f1f) var(--_lm, #f1f1f1)" data-id="F3" data-label="Финиш: Система осталась 
+ на старой версии модели" data-shape="circle">
+      <circle cx="457.69" cy="1403.77" r="108.44" class="node-shape node-circle"/>
+      <text x="457.69" y="1403.77" font-size="13" class="node-label" font-weight="500" text-anchor="middle"><tspan x="457.69" dy="-3.58px">Финиш: Система осталась </tspan><tspan x="457.69" dy="16.25px"> на старой версии модели</tspan></text>
+    </g>
+  </g>
+</svg>
